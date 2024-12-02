@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cont{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            font-size: 40px;
+            display: flex;;
+            justify-content: center;
+            align-items: center;
+color: blue;
+        }
+        .card{
+            height: 100px;
+            width: 100px;
+            background-color: green;
+            color: black;
+            margin-top: 10px;
+            margin-left: 10px;
+            
+        display: inline-block;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            
+
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cont">
+        +
+
+    </div>
+    <div id="main"></div>
+    <script>
+        const mains=document.getElementById("main");
+        const divs=document.getElementById("cont");
+        let count=1;
+        
+        divs.addEventListener("click",()=>{
+            
+            
+            const div1=document.createElement("div");
+            div1.classList.add("card");
+            
+        div1.innerHTML=count;
+        
+            mains.appendChild(div1);
+            count++;
+
+            
+        })
+        
+        
+    
+    
+    
+        
+    </script>
+</body>
+</html>

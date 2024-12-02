@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=mainh1
+    tic toc to, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #548687;
+            text-align: center;
+        }
+        .contanar{
+            height: 70vh;
+            display: flex;
+            
+            justify-content: center;
+            align-items: center;
+
+
+        }
+        .game{
+            height: 60vmin;
+            width: 60vmin;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+
+
+        }
+        .box{
+            border-radius: 1rem;
+            border: none;
+            height:18vmin;
+            width: 18vmin;
+            box-shadow: 0 0 1rem rgba(0,0,0,0.4);
+            font-size: 8vmin;
+            color: #b041e3;
+            background-color: #ffff67;
+        }
+        #reset-btn{
+            padding: 1rem;
+            font-size: 1.25rem;
+            background-color: #19191913;
+            color: #fff;
+            border-radius: 1rem;
+            border: none;
+        }
+        #new-btn{
+            padding: 1rem;
+            font-size: 1.25rem;
+            background-color: #19191913;
+            color: #fff;
+            border-radius: 1rem;
+            border: none;
+
+        }
+        .msg{
+            color: #ffffc7;
+            font-size: 8vmin;
+
+        }
+        .msg-containar{
+            height: 60vmin;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="msg-containar hide">
+        <div class="msg">winner</div>
+        <button id="new-btn">new game</button>
+    </div>
+    <main>
+        <h1>tic toc toe</h1>
+        <div class="contanar">
+        <div class="game">
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        </div>
+        </div>
+        <button id="reset-btn">rest</button>
+    </main>
+    <script>
+        const boxes=document.querySelectorAll(".box");
+        let resetbtn=document.querySelector("#reset-btn");
+        let newgamebtn=document.querySelector("#new-btn");
+        let msgcontainar=document.querySelector(".msg-containar");
+        let msg=document.querySelector(".msg");
+        let turno=true;
+        let winpatterns=[
+            [0,1,2],
+            [ 0,3,6],
+            [0,4,8],
+            [1,4,7],
+            [2,5,8],
+            [2,4,6],
+            [3,4,5],
+            [6,7,8],
+        ];
+function reset(){
+   turno=true;
+    undisable();
+    msgcontainar.classList.add("hide");
+    
+    
+
+}
+        function undisable(){
+            for(let box of boxes){
+                box.disabled=false;
+
+                box.innerText="";
+                
+            }
+
+        }
+        function disable(){
+            for(let box of boxes){
+                box.disabled=true;
+                
+            }
+        }
+        boxes.forEach((box)=>{
+            box.addEventListener("click",()=>{
+                if(turno){
+                    box.innerHTML="o";
+                    turno=false;
+                }
+                else {
+                    box.innerText="x"
+                    turno=true;
+                }
+                box.disabled=true;
+                checkwinner();
+            })
+        })
+        const checkwinner=()=>{
+            for(patten of winpatterns){
+                let pos1=boxes[patten[0]].innerText;
+                let pos2=boxes[patten[1]].innerText;  
+                let pos3=boxes[patten[2]].innerText;
+                if(pos1!="" && pos2!="" && pos3!=""){
+                    if(pos1===pos2 && pos2===pos3){
+
+
+showwinner(pos1);
+
+                    
+                }
+
+            }
+        }}
+    function showwinner(winar){
+            msg.innerText=`congratulations winner is ${winar}`;
+           msgcontainar.classList.remove("hide");
+           disable();
+        
+        }
+
+        resetbtn.addEventListener("click",reset);
+    </script>
+</body>
+</html>
