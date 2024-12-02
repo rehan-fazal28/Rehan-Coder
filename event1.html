@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            width: 100px;
+            
+        }
+        .box1{
+            background-color: red;
+        }
+        .box2{
+            background-color: green;
+        }
+        .box3{
+            background-color: yellow;
+        }
+        .box4{
+            background-color: aqua;
+        }
+        body{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+        }
+        .main{
+            height: 230px;
+            width: 230px;
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            
+
+        }
+    </style>
+</head>
+<body><div class="main">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    </div>
+    <script>
+        const body=document.querySelector("body");
+        const box1=document.querySelector(".box1");
+        box1.addEventListener("click",()=>{
+            body.style.backgroundColor="red";
+            
+        })
+        box1.addEventListener("mouseout",()=>{
+            body.style.backgroundColor="white";
+        })
+        const box2=document.querySelector(".box2");
+        box2.addEventListener("click",()=>{
+            body.style.backgroundColor="green";
+            
+        })
+        box2.addEventListener("mouseout",()=>{
+            body.style.backgroundColor="white";
+        })
+
+        const box3=document.querySelector(".box3");
+        box3.addEventListener("click",()=>{
+            body.style.backgroundColor="yellow";
+            
+        })
+        box3.addEventListener("mouseout",()=>{
+            body.style.backgroundColor="white";
+        })
+
+        const box4=document.querySelector(".box4");
+        box4.addEventListener("click",()=>{
+            body.style.backgroundColor="aqua";
+            
+        })
+        box4.addEventListener("mouseout",()=>{
+            body.style.backgroundColor="white";
+        })
+
+
+
+
+
+        
+    </script>
+</body>
+</html>
